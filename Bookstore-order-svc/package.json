@@ -1,0 +1,9 @@
+{
+"name": "svc",
+"type": "module",
+"scripts": { "start": "node src/index.js" },
+"dependencies": {
+"express": "^4.19.2",
+"mysql2": "^3.9.1"
+}
+}
