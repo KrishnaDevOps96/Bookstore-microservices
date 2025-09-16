@@ -57,7 +57,7 @@ This project demonstrates end-to-end **DevOps practices**:
 ```mermaid
 graph TD
   User[User] -->|HTTP/HTTPS| ALB[AWS ALB]
-  ALB --> FE[Frontend (React, ECS Fargate)]
+  ALB --> FE["Frontend (React, ECS Fargate)"]
   ALB -->|/api/catalog/*| Catalog[Catalog Service]
   ALB -->|/api/orders/*| Orders[Orders Service]
   ALB -->|/api/payments/*| Payments[Payments Service]
