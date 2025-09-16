@@ -2,6 +2,14 @@
 
 A cloud-native Bookstore application built with a **microservices architecture**, containerized deployments, and production-ready **AWS infrastructure**.
 
+## Quick Start (Local Dev)
+```bash
+git clone https://github.com/your-username/bookstore-microservices.git
+cd bookstore-microservices
+docker-compose up --build
+```
+Open http://localhost:3000 in your browser.
+
 This project demonstrates end-to-end **DevOps practices**:
 
 - Microservices with **Docker**
@@ -10,7 +18,16 @@ This project demonstrates end-to-end **DevOps practices**:
 - Secure deployments on **AWS ECS Fargate with RDS**
 - Monitoring and observability with **CloudWatch**
 
----
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?logo=terraform&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-FF9900?logo=amazon-aws&logoColor=white)
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?logo=jenkins&logoColor=white)
+
+## Prerequisites
+- Docker & Docker Compose
+- Terraform v1.x
+- AWS CLI (configured with IAM user/role)
+- Node.js & npm (for local frontend testing)
 
 ## Architecture Overview
 
@@ -112,9 +129,9 @@ docker-compose up --build
 **Services**
 
 - Frontend → http://localhost:3000
-- Catalog → http://localhost:3001
-- Orders → http://localhost:3002
-- Payments → http://localhost:3003
+- Catalog → http://localhost:8081
+- Orders → http://localhost:8082
+- Payments → http://localhost:8083
 
 ## CI/CD Pipeline (Jenkins)
 ```mermaid
@@ -179,9 +196,14 @@ terraform apply -auto-approve
 
 I’m **SaiKrishna Bethamcharla**, a DevOps Engineer with 3+ years of experience.
 
+I designed and implemented this project end-to-end, including containerization, CI/CD automation, AWS infrastructure with Terraform, and production deployment strategies.
+
 This project demonstrates:
 
 - Designing and deploying a production-grade microservices system
 - Automating everything with Terraform and Jenkins pipelines
 - Applying best practices in AWS, CI/CD, and Infrastructure as Code
 
+---
+## License
+This project is licensed under the MIT License.
