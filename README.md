@@ -29,6 +29,7 @@ This project demonstrates end-to-end **DevOps practices**:
 ---
 
 ## Repository Structure
+```
 
 ├── Bookstore-frontend/ # React frontend
 ├── Bookstore-catalog-svc/ # Catalog microservice
@@ -48,6 +49,7 @@ This project demonstrates end-to-end **DevOps practices**:
 ├── docs/ # Documentation & diagrams
 └── docker-compose.yml # Local development setup
 
+```
 ---
 
 ## System Architecture
