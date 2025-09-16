@@ -109,7 +109,7 @@ Run everything locally with Docker Compose:
 ```
 docker-compose up --build
 ```
-###Services
+**Services**
 
 - Frontend → http://localhost:3000
 - Catalog → http://localhost:3001
@@ -129,10 +129,10 @@ flowchart LR
 
 Each microservice includes a Jenkinsfile:
 
-1. Checkout → Pull code
-2. Install & Test → npm ci && npm test
-3. Build & Push → Docker image to ECR
-4. Deploy → Terraform updates ECS service
+- **Checkout** → Pull code
+- **Install** & Test → npm ci && npm test
+- **Build & Push** → Docker image to ECR
+- **Deploy** → Terraform updates ECS service
 
 ## Infrastructure (Terraform)
 
@@ -140,12 +140,12 @@ Infrastructure is fully automated using Terraform.
 
 Modules
 
-- VPC → Multi-AZ, public/private subnets, IGW, NAT Gateway
-- ECS Cluster → Fargate tasks, services, IAM roles
-- ECR → Private container registries
-- ALB → Path-based routing for services
-- IAM → Roles and policies with least-privilege
-- RDS → PostgreSQL (multi-AZ, backups, security groups, Secrets Manager)
+- **VPC** → Multi-AZ, public/private subnets, IGW, NAT Gateway
+- **ECS** Cluster → Fargate tasks, services, IAM roles
+- **ECR** → Private container registries
+- **ALB** → Path-based routing for services
+- **IAM** → Roles and policies with least-privilege
+- **RDS** → PostgreSQL (multi-AZ, backups, security groups, Secrets Manager)
 
 Environments
 - ```terraform/environments/dev``` → Development environment
@@ -177,7 +177,7 @@ terraform apply -auto-approve
 
 ## About Me
 
-I’m SaiKrishna Bethamcharla, a DevOps Engineer with 3+ years of experience.
+I’m **SaiKrishna Bethamcharla**, a DevOps Engineer with 3+ years of experience.
 
 This project demonstrates:
 
