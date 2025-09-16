@@ -1,0 +1,56 @@
+// pipeline with docker agents
+pipeline {
+    agent none
+    environment {
+       // environment variables
+       AWS_REGION = 'ap-south-1'
+       AWS_ACCOUNT = ''
+       ECR_REPO = 'bookstore-frontend'
+       TAG = "${env.BUILD_ID}"
+       IMAGE = "${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:${TAG}"
+       REPO_URI = "${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}"
+
+    }
+    stages {
+        stage('checkout') {
+            agent { docker { image 'alpine/git:latest' } }
+            steps {
+                checkout scm
+            }
+        }
+        stage('install') {
+            agent { docker { image 'node:20-alpine' } }
+            steps {
+                echo 'installing...'
+                sh 'npm ci'
+            }
+        }
+        stage('Test') {
+            agent { docker { image 'node:20-alpine' } }
+            steps {
+                echo 'Testing...'
+                sh 'npm test'
+            }
+        }
+        stage('build image') {
+            steps {
+                agent { 
+                    docker {
+                        image 'docker:24-dind'
+                        args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
+                    } 
+                }
+                script {
+                    echo 'building image...'
+                    sh 'apk add --no-cache python3 py3-pip curl && pip3 install awscli'
+                    // Login
+                    sh 'aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $REPO_URI'
+                    // Build and tag
+                    sh 'docker build -t $ECR_REPO:$TAG .'
+                    sh 'docker tag $ECR_REPO:$TAG $IMAGE'
+                    // Push to ECR
+                    sh 'docker push $IMAGE'
+                }
+        }
+    }
+}
