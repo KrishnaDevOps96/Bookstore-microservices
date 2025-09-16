@@ -56,11 +56,11 @@ This project demonstrates end-to-end **DevOps practices**:
 
 ```mermaid
 graph TD
-  User[👤 User] -->|HTTP/HTTPS| ALB[⚖️ AWS ALB]
-  ALB --> FE[🌐 Frontend (React, ECS Fargate)]
-  ALB -->|/api/catalog/*| Catalog[📘 Catalog Service]
-  ALB -->|/api/orders/*| Orders[📦 Orders Service]
-  ALB -->|/api/payments/*| Payments[💳 Payments Service]
+  User[User] -->|HTTP/HTTPS| ALB[AWS ALB]
+  ALB --> FE[Frontend (React, ECS Fargate)]
+  ALB -->|/api/catalog/*| Catalog[Catalog Service]
+  ALB -->|/api/orders/*| Orders[Orders Service]
+  ALB -->|/api/payments/*| Payments[Payments Service]
 
   Catalog --> DB1[(PostgreSQL - Catalog DB)]
   Orders --> DB2[(PostgreSQL - Orders DB)]
