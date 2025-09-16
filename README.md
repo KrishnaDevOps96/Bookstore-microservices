@@ -10,7 +10,9 @@ docker-compose up --build
 ```
 Open http://localhost:3000 in your browser.
 
-This project demonstrates end-to-end **DevOps practices**:
+---
+
+### This project demonstrates end-to-end **DevOps practices**:
 
 - Microservices with **Docker**
 - CI/CD pipelines using **Jenkins**
