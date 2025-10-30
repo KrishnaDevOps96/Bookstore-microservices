@@ -196,7 +196,7 @@ terraform apply -auto-approve
 
 ## About Me
 
-I’m **SaiKrishna Bethamcharla**, a DevOps Engineer with 3+ years of experience.
+I’m **SaiKrishna Bethamcharla**, an enthusiastic DevOps Engineer.
 
 I designed and implemented this project end-to-end, including containerization, CI/CD automation, AWS infrastructure with Terraform, and production deployment strategies.
 
